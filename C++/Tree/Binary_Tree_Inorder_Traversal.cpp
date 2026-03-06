@@ -59,9 +59,9 @@ public:
     }
 };
 
-//Morris先序遍历
+//Morris中序遍历
 //LeetCode, Binary Tree Inorder Traversal
-//Morris先序遍历，时间复杂度O(n)，空间复杂度O(1)
+//Morris中序遍历，时间复杂度O(n)，空间复杂度O(1)
 
 class Solution{
 public:
