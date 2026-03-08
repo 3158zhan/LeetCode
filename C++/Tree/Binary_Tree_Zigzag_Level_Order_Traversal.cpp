@@ -10,11 +10,11 @@ struct TreeNode{
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) { }
 }
 
-//Binary Tree Zigzag Level Order Traversal
+//LeetCode, Binary Tree Level Order Traversal II
 //描述
 
-    Given a binary tree, return the zigzag level order traversal of its nodes’ values. 
-(ie, from left to right,then right to left for the next level and alternate between).
+    Given a binary tree, return the bottom-up level order traversal of 
+its nodes' values. (ie, from left to right, level by level from leaf to root).
     For example: Given binary tree {3, 9, 20, #, #, 15, 7}
         3
        / \
@@ -31,7 +31,7 @@ return its bottom-up level order traversal as:
 
 //分析
 
-    在上一题(binary-tree-tevel-order-traversal）的基础上，reverse()一下即可。
+    在上一题(binary-tree-Level-order-traversal）的基础上，reverse()一下即可。
 
 
 ******************************************************************/
