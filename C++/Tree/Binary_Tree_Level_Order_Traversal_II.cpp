@@ -39,7 +39,7 @@ return its bottom-up level order traversal as:
 //代码
 //递归法
 //LeetCode, Binary Tree Level Order  Traversal II
-//使用栈，时间复杂度O(n)，空间复杂度O(n)
+//时间复杂度O(n)，空间复杂度O(n)
 
 class Solution{
 public:
