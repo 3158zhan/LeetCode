@@ -32,7 +32,6 @@ Could you devise a constant space solution?
 //代码
 
 
-//递归法
 //LeetCode, Recover Binary Search Tree
 //Morris中序遍历，时间复杂度O(n)，空间复杂度O(1)
 
