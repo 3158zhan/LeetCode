@@ -10,7 +10,7 @@ struct TreeNode{
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) { }
 }
 
-//LeetCode, Validate Binary Search Tree
+//LeetCode, Convert Sorted Array to Binary Search Tree
 //描述
 
     Given an array where elements are sorted in ascending order, 
