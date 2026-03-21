@@ -79,3 +79,46 @@ public:
     }
      
 };
+
+
+//两遍扫描
+//LeetCode, Longest Valid Parenthese
+//时间复杂度O(n)，空间复杂度O(1)
+
+class Solution {
+public:
+    int longestValidParentheses(const string& s) {
+        int answer = 0, depth = 0, start = -1;
+        for (int i = 0; i < s.size(); ++i) {
+            if (s[i] == '(') {
+                ++depth;
+            } else {
+                --depth;
+                if (depth < 0) {
+                    start = i;
+                    depth = 0;
+                } else if (depth == 0) {
+                    answer = max(answer, i - start);
+                }
+            } 
+        }
+
+        depth = 0;
+        start = s.size();
+        for (int i = s.size() - 1; i >= 0; --i) {
+            if (s[i] == ')') {
+                ++depth;
+            } else {
+                --depth;
+                if (depth < 0) {
+                    start = i;
+                    depth = 0;
+                    
+                } else if (depth == 0) {
+                    answer = max(answer, start - i);
+                }
+            } 
+        }
+        return answer;
+    }
+};
