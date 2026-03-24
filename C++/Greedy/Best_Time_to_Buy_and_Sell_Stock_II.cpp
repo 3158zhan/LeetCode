@@ -4,7 +4,7 @@
 //LeetCode ,贪心算法
 
 
-//LeetCode, Best Time to Buy and Sell Stock
+//LeetCode, Best Time to Buy and Sell Stock II
 //描述
 
     Say you have an array for which the i-th element is the price of a given stock on day i.
