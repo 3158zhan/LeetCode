@@ -25,7 +25,7 @@ stock), design an algorithm to find the maximum profit.
 
 
 //LeetCode, Best Time to buy and Sell Stock
-//思路1，时间复杂度O(n)，空间复杂度O(1)
+//时间复杂度O(n)，空间复杂度O(1)
 
 class Solution {
 public:
