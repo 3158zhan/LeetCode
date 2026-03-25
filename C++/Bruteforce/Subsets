@@ -123,3 +123,56 @@ private:
         subsets(S, selected, step + 1, result);
     }
 };
+
+
+//迭代
+
+//增量构造法
+// LeetCode, Subsets
+// 迭代版，时间复杂度O(2^n)，空间复杂度O(1)
+class Solution {
+public:
+    vector<vector<int> > subsets(vector<int> &S) {
+        sort(S.begin(), S.end()); // 输出要求有序
+        vector<vector<int> > result(1);
+        for (auto elem : S) {
+            result.reserve(result.size() * 2);
+            auto half = result.begin() + result.size();
+            copy(result.begin(), half, back_inserter(result));
+            for_each(half, result.end(), [&elem](decltype(result[0]) &e){
+                e.push_back(elem);
+            });
+        }
+        return result;
+    }
+};
+
+//二进制法
+//本方法的前提是：集合的元素不超过int位数。用一个int整数表示位向量，第i位为1，
+//则表示选择S[i]，为0则不选择。例如S={A,B,C,D}，则 0110=6 表示子集{B,C}。
+//这种方法最巧妙。因为它不仅能生成子集，还能方便的表示集合的并、交、差等集合运算。
+//设两个集合的位向量分别为B_1和B_2，则B_1 并于 B_2, B_1 相交于 B_2, B_1 对称差于 B_2
+//它们分别对应集合的并、交、对称差。
+//二进制法，也可以看做是位向量法，只不过更加优化。
+
+// LeetCode, Subsets
+// 二进制法，时间复杂度O(2^n)，空间复杂度O(1)
+class Solution {
+public:
+    vector<vector<int>> subsets(vector<int> &S){
+        sort(S.begin(), S.end());  //输出要求有序
+        vector<vector<int>> result;
+        const size_t n = S.size();
+        vector<int> v;
+
+        for(size_t i = 0; i < 1 << n; i++){
+            for(size_t j = 0; j < n; j++){
+                if(i & 1 << j) v.push_back(S[j]);
+            }
+            result.push_back(v);
+            v.clear();
+
+        }
+        return result;
+    }
+};
