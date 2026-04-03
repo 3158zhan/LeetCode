@@ -63,4 +63,38 @@ public:
     } 
 };
 
+//分析2
+//第一直觉是个聚类的操作,应该有union,find的操作.连续序列可以用两端和长度来表示.
+//本来用两端就可以表示,但考虑到查询的需求,将两端分别暴露出来.用unordered_map<int, int> map来
+//存储
+// LeetCode, Longest Consecutive Sequence
+// 时间复杂度O(n)，空间复杂度O(n)
+class Solution {
+public:
+    int longestConsecutive(vector<int> &nums) {
+        unordered_map<int, int> map;
+        int size = nums.size();
+        int l = 1;
+        for (int i = 0; i < size; i++) {
+            if (map.find(nums[i]) != map.end()) continue;
+            map[nums[i]] = 1;
+            if (map.find(nums[i] - 1) != map.end()) {
+                l = max(l, mergeCluster(map, nums[i] - 1, nums[i]));
+            }
+            if (map.find(nums[i] + 1) != map.end()) {
+                l = max(l, mergeCluster(map, nums[i], nums[i] + 1));
+            }
+        }
+        return size == 0 ? 0 : l;
+    }
 
+private:
+    int mergeCluster(unordered_map<int, int> &map, int left, int right) {
+        int upper = right + map[right] - 1;
+        int lower = left - map[left] + 1;
+        int length = upper - lower + 1;
+        map[upper] = length;
+        map[lower] = length;
+        return length;
+    } 
+};
