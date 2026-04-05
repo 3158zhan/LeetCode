@@ -5,7 +5,7 @@
 //这类题目考察线性表的操作，例如，数组，单链表，双向链表等。
 
 
-//LeetCode, Two Sum
+//LeetCode, 3 Sum
 //描述
 
     Given an array S of n integers, are there elements a, b, c in S such that a + b + c = 0? 
